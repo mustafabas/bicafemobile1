@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import LoginScreen from './Component/LoginScreen';
-import RouterLogin from './RouterLogin.js';
+import RouteStack from './RouteStack.js';
 
 
 
@@ -16,7 +16,7 @@ export default class Main extends Component{
         const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
         return (
             <Provider store={store}>
-            <RouterLogin/>
+            <RouteStack/>
              </Provider>
         );
      

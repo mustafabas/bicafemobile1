@@ -34,7 +34,7 @@ import {LoginChanged} from '.././actions';
                     <Input secureTextEntry value={this.props.password1} onChangeText={password1=>this.props.LoginChanged({props:'password',value:password1})} placeholderTextColor='#fff' style={styles.formInput} placeholder='Şifre'/>
                 </Item>
                     </Form>
-                    <Button full iconLeft light style={{marginTop:10,backgroundColor:'#FF4917'}}>
+                    <Button full iconLeft light style={{marginTop:10,backgroundColor:'#FF4917'}} onPress={this._signInAsync} >
                     <Icon style={{color:'white'}} name='arrow-forward' />
                     <Text style={{color:'white'}}>GİRİŞ YAP</Text>
                 
@@ -54,7 +54,13 @@ import {LoginChanged} from '.././actions';
         </ImageBackground>
  
         );
+        
     }
+    _signInAsync = async () => {
+        await AsyncStorage.setItem('userToken', 'abc');
+        this.props.navigation.navigate('App');
+      };
+    
 }
 
 const styles = StyleSheet.create({
