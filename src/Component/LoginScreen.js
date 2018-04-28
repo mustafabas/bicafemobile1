@@ -10,11 +10,11 @@ import {LoginChanged} from '.././actions';
     static navigationOptions = {
         header:null
       };
+    
     render(){
-        console.log('response email:'+this.props.username);
-        console.log('response email:'+this.props.username);
+      
+
         return(
-            
         <ImageBackground style={{flex:1,justifyContent:"space-between",flexDirection:'column',position:'absolute', top: 0, bottom: 0, left: 0, right: 0}} source={require('.././images/back-login1.png')}>
             <View style={{ marginTop:30,height:100}} >
                 <Text style={styles.tWelcome}>HOŞGELDİN</Text>
@@ -22,7 +22,8 @@ import {LoginChanged} from '.././actions';
                 <Text style={styles.tSubText}>kullanabilirsin..</Text>
             </View>
             <View style={{height:300}}>
-                    <Text style={styles.tHeadLogin}>GİRİŞ <Text style={{color:'white'}}>Hesap Oluştur</Text></Text>
+                  
+                    <Text style={styles.tHeadLogin}>GİRİŞ <Text style={{color:'white',textDecorationLine:'underline'}} onPress={()=>this.props.navigation.navigate("Register")}>Hesap Oluştur</Text></Text>
                     <Content>
                     <Form>
                     <Item>
@@ -57,7 +58,7 @@ import {LoginChanged} from '.././actions';
         
     }
     _signInAsync = async () => {
-        await AsyncStorage.setItem('userToken', 'abc');
+        await AsyncStorage.setItem('memberId', 'abc');
         this.props.navigation.navigate('App');
       };
     

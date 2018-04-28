@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
+import {Platform} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import LoginScreen from './Component/LoginScreen.js';
 import HomeScreen from './Component/HomeScreen.js';
 import AuthLoadingScreen from './Component/AuthLoadingScreen.js';
 import SelfProfileScreen from './Component/SelfProfileScreen.js';
-import { StackNavigator,SwitchNavigator,TabNavigator,TabBarBottom  } from 'react-navigation';
+import RegisterOneStepScreen from './Component/RegisterOneStepScreen.js';
+import { StackNavigator,SwitchNavigator,TabNavigator,TabBarBottom,addNavigationHelpers } from 'react-navigation';
+
 
 
 const HomeStack = StackNavigator({ Home: HomeScreen });
@@ -13,6 +16,9 @@ const HomeStack = StackNavigator({ Home: HomeScreen });
 const SelfProfileStack = StackNavigator({
   SelfProfile: { screen: SelfProfileScreen },
 });
+
+
+
 
 const AppStack=TabNavigator(
   {
@@ -31,7 +37,7 @@ const AppStack=TabNavigator(
 
         // You can return any component that you like here! We usually use an
         // icon component from react-native-vector-icons
-        return <Ionicons name={iconName} size={30} color={tintColor} />;
+        return <Ionicons name={iconName} size={25} color={tintColor} />;
       },
     }),
     tabBarOptions: {
@@ -40,12 +46,12 @@ const AppStack=TabNavigator(
     },
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
-    animationEnabled: false,
-    swipeEnabled: true,
+    animationEnabled: true,
+    swipeEnabled: false,
   }
 );
 
-const AuthStack = StackNavigator({ Login: LoginScreen });
+const AuthStack = StackNavigator({ Login: LoginScreen,Register:RegisterOneStepScreen});
 
 export default SwitchNavigator(
   {
@@ -57,3 +63,5 @@ export default SwitchNavigator(
     initialRouteName: 'AuthLoading',
   }
 );
+
+
