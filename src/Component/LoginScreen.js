@@ -1,8 +1,8 @@
 import React,{Component   } from "react";
-import { View, Image,AsyncStorage,StyleSheet,ImageBackground } from 'react-native';
+import { View, Image,AsyncStorage,StyleSheet,ImageBackground,Alert } from 'react-native';
 import { Form, Item, Input, Label, Content, Button, Text, Spinner,Icon }  from 'native-base';
 import { connect } from "react-redux";
-import {LoginChanged} from '.././actions';
+import {LoginChanged,LoginMember} from '.././actions';
 
 
 
@@ -10,11 +10,11 @@ import {LoginChanged} from '.././actions';
     static navigationOptions = {
         header:null
       };
+    
     render(){
-        console.log('response email:'+this.props.username);
-        console.log('response email:'+this.props.username);
+      
+
         return(
-            
         <ImageBackground style={{flex:1,justifyContent:"space-between",flexDirection:'column',position:'absolute', top: 0, bottom: 0, left: 0, right: 0}} source={require('.././images/back-login1.png')}>
             <View style={{ marginTop:30,height:100}} >
                 <Text style={styles.tWelcome}>HOŞGELDİN</Text>
@@ -22,19 +22,20 @@ import {LoginChanged} from '.././actions';
                 <Text style={styles.tSubText}>kullanabilirsin..</Text>
             </View>
             <View style={{height:300}}>
-                    <Text style={styles.tHeadLogin}>GİRİŞ <Text style={{color:'white'}}>Hesap Oluştur</Text></Text>
+                  
+                    <Text style={styles.tHeadLogin}>GİRİŞ <Text style={{color:'white',textDecorationLine:'underline'}} onPress={()=>this.props.navigation.navigate("Register")}>Hesap Oluştur</Text></Text>
                     <Content>
                     <Form>
                     <Item>
                     <Icon active style={{color:'white'}} name='person' />
-                    <Input value={this.props.username1} onChangeText={username1=>this.props.LoginChanged({props:'username',value:username1})} placeholderTextColor='#fff' style={styles.formInput} placeholder='Kullanıcı Adı'/>
+                    <Input value={this.props.username} onChangeText={username1 =>this.props.LoginChanged({ props: 'username', value: username1 })} placeholderTextColor='#fff' style={styles.formInput} placeholder='Kullanıcı Adı'/>
                     </Item>
                     <Item>
                     <Icon active style={{color:'white'}} name='person' />
-                    <Input secureTextEntry value={this.props.password1} onChangeText={password1=>this.props.LoginChanged({props:'password',value:password1})} placeholderTextColor='#fff' style={styles.formInput} placeholder='Şifre'/>
+                    <Input secureTextEntry value={this.props.password} onChangeText={password1=>this.props.LoginChanged({props:'password',value:password1})} placeholderTextColor='#fff' style={styles.formInput} placeholder='Şifre'/>
                 </Item>
                     </Form>
-                    <Button full iconLeft light style={{marginTop:10,backgroundColor:'#FF4917'}}>
+                    <Button full iconLeft light style={{marginTop:10,backgroundColor:'#FF4917'}} onPress={this._signIn.bind(this)} >
                     <Icon style={{color:'white'}} name='arrow-forward' />
                     <Text style={{color:'white'}}>GİRİŞ YAP</Text>
                 
@@ -54,7 +55,14 @@ import {LoginChanged} from '.././actions';
         </ImageBackground>
  
         );
+        
     }
+    _signIn () {
+        const {username, password}=this.props;
+        console.log(username+password);
+        this.props.LoginMember({username,password});
+      };
+    
 }
 
 const styles = StyleSheet.create({
@@ -93,11 +101,13 @@ const styles = StyleSheet.create({
     },
   });
   const mapToStateProps=({LoginResponse})=>{
-    const{username,password}=LoginResponse;
+    const{username,password,loading,success}=LoginResponse;
     return {
-        username:'',
-        password:'',
+    username,
+    password,
+    loading,
+    success
         
-    }
+    };
   };
-  export default connect(mapToStateProps,{LoginChanged})(LoginScreen);
+  export default connect(mapToStateProps,{LoginChanged,LoginMember})(LoginScreen);
