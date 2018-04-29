@@ -12,7 +12,7 @@ export default class ShareListItem extends Component{
     {
         return(
             <Content >
-            <Card style={{backgroundColor:'#fff'}}>
+            <Card style={{backgroundColor:'#fff',marginLeft:10,marginRight:10}}>
             <View style={styles.storeDiv}>
               <View style={styles.storeHead}>
                 <Thumbnail source={{uri: 'https://i.pinimg.com/originals/11/30/66/1130660541155da406becb6d3cc910ec.jpg'}} />
@@ -32,7 +32,7 @@ export default class ShareListItem extends Component{
               <Image style={{marginLeft:-10,marginRight:-10}} source={{uri: 'http://www.yemektarifi.com/wp-content/uploads/2017/02/filtre-kahve-french-press-1.jpg'}} style={{height: 200, width: null, flex: 1}}/>
             </CardItem>
             <View style={{flexDirection:'column',marginLeft:18}}>
-                <Text style={{color:'#000',fontFamily:'Roboto-Regular',marginTop:10,fontSize:13}}>Bu grupta Bakü’den birileri var mı merak ediyorum,yoksa sadece Türkiye içinde misiniz? Buralara yolunuz düşerse misafir etmek isteriz,yada buralardaysanız güzel bir pazar kahvesi içebiliriz 🙂 siz sormadan ben söyleyeyim aslında manisalıyım ama eğitimim dolayısıyla Bakü’de bulunuyorum</Text>
+                <Text style={{color:'#000',fontFamily:'Roboto-Regular',marginTop:10,fontSize:11}}>Bu grupta Bakü’den birileri var mı merak ediyorum,yoksa sadece Türkiye içinde misiniz? Buralara yolunuz düşerse misafir etmek isteriz,yada buralardaysanız güzel bir pazar kahvesi içebiliriz 🙂 siz sormadan ben söyleyeyim aslında manisalıyım ama eğitimim dolayısıyla Bakü’de bulunuyorum</Text>
                 <View style={{marginTop:10}}>
                     <TouchableOpacity style={{flexDirection:'row',width:300}}>
                     <Icon style={{fontSize:18,color:'#355c7d'}} name="location-arrow"/>
