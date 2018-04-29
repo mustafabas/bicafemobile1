@@ -41,7 +41,7 @@ const AppStack=TabNavigator(
       },
     }),
     tabBarOptions: {
-      activeTintColor: '#547a82',
+      activeTintColor: '#e84a5f',
       inactiveTintColor: 'gray',
     },
     tabBarComponent: TabBarBottom,
