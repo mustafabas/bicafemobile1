@@ -11,15 +11,15 @@ export default class ShareListItem extends Component{
     render()
     {
         return(
-            <Content>
-            <Card style={{}}>
+            <Content >
+            <Card style={{backgroundColor:'#fff'}}>
             <View style={styles.storeDiv}>
               <View style={styles.storeHead}>
                 <Thumbnail source={{uri: 'https://i.pinimg.com/originals/11/30/66/1130660541155da406becb6d3cc910ec.jpg'}} />
                 <View>
-                  <Text style={{fontWeight:'bold',color:'#2a363b'}}>@starbucks</Text>
+                  <Text style={{color:'#2a363b',fontSize:12,fontFamily:'Lato-SemiBold'}}>@starbucks</Text>
               
-                <Text note style={[human.caption2,{color:'#355c7d',textDecorationLine:'underline'}]}>Bornova/İzmir</Text>
+                <Text note style={{color:'#ccc',textDecorationLine:'underline',fontSize:10}}>Bornova/İzmir</Text>
                 
                 </View>
               </View>
@@ -32,11 +32,11 @@ export default class ShareListItem extends Component{
               <Image style={{marginLeft:-10,marginRight:-10}} source={{uri: 'http://www.yemektarifi.com/wp-content/uploads/2017/02/filtre-kahve-french-press-1.jpg'}} style={{height: 200, width: null, flex: 1}}/>
             </CardItem>
             <View style={{flexDirection:'column',marginLeft:18}}>
-                <Text style={[human.body1,{color:'#000',fontFamily:'Open Sans',marginTop:10}]}>Filtre kahvede %50 indirim fırsatı..</Text>
+                <Text style={{color:'#000',fontFamily:'Roboto-Regular',marginTop:10,fontSize:13}}>Bu grupta Bakü’den birileri var mı merak ediyorum,yoksa sadece Türkiye içinde misiniz? Buralara yolunuz düşerse misafir etmek isteriz,yada buralardaysanız güzel bir pazar kahvesi içebiliriz 🙂 siz sormadan ben söyleyeyim aslında manisalıyım ama eğitimim dolayısıyla Bakü’de bulunuyorum</Text>
                 <View style={{marginTop:10}}>
-                    <TouchableOpacity style={{flexDirection:'row'}}>
-                    <Ionicons style={{fontSize:18,color:'#355c7d'}} name="ios-navigate"/>
-                    <Text note style={{textDecorationLine:'underline' }}>Güzeltepe sok. No:2
+                    <TouchableOpacity style={{flexDirection:'row',width:300}}>
+                    <Icon style={{fontSize:18,color:'#355c7d'}} name="location-arrow"/>
+                    <Text note style={{textDecorationLine:'underline',fontSize:11,color:'#B5B5B5',width:300,fontFamily:'Roboto' }}>Güzeltepe sok. No:2
                     </Text>
                     </TouchableOpacity>
                 </View>
@@ -46,15 +46,15 @@ export default class ShareListItem extends Component{
             <View style={styles.listFooter}>
                 <View style={{flex:0.4,flexDirection:'row',marginTop:20,marginRight:20,marginLeft:20}}>
                 <Ionicons name="ios-clock-outline" style={{color:'#355c7d'}} size={17} />
-                    <Text  style={[human.caption2,{color:'#333',fontFamily:'Roboto',marginLeft:2,marginTop:2}]}>15:00-17:00</Text>
+                    <Text  style={[human.caption2,{color:'#333',fontFamily:'OpenSans-SemiBold',marginLeft:2,marginTop:2}]}>15:00-17:00</Text>
                 </View>
                 <View style={{flex:0.4,flexDirection:'row',marginRight:20,marginTop:20}}>
                 <Ionicons name="ios-people-outline" style={{color:'#355c7d'}} size={17}/>
-                <Text  style={[human.caption2,{color:'#333',fontFamily:'Roboto',marginLeft:2,marginTop:2}]}>2 Kişi</Text>
+                <Text  style={[human.caption2,{color:'#333',fontFamily:'OpenSans-SemiBold',marginLeft:2,marginTop:2}]}>2 Kişi</Text>
                 </View>
                 <View style={{flexDirection:'row'}}>
                 <TouchableOpacity>
-                <Text style={{color:'#2a363b',fontSize:16,fontWeight:'bold',marginTop:15,textAlign:'right'}}>Rezerve Et</Text>
+                <Text style={{color:'#2a363b',fontSize:14,fontWeight:'bold',marginTop:17,textAlign:'right',fontFamily:'GothicA1-Regular'}}>Rezerve Et</Text>
                 </TouchableOpacity>
                 </View>
 

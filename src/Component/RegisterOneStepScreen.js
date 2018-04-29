@@ -7,9 +7,27 @@ import { connect } from "react-redux";
 import {RegisterChanged, RegisterCreate} from '.././actions';
 
 class RegisterOneStepScreen extends Component{
-    static navigationOptions = {
-        header:null
+  static navigationOptions = ({ navigation}) => {
+    const { params = {} } = navigation.state;
+
+    _signOutAsync = async () => {
+        await AsyncStorage.clear();
+        navigation.navigate('Auth');
       };
+      
+    return {
+      headerTitle: "Yeni Hesap Oluştur",
+      headerTitleStyle:{
+        fontFamily:'OpenSans-SemiBold'
+      },
+      headerTintColor:'#fff',
+      //headerLeft:<Button transparent><Icon name="bars"  style={{ color: 'white' }} size={20} /></Button>,
+      headerStyle:{
+      backgroundColor: '#e84a5f',  borderWidth: 1, borderBottomColor: '#fff'
+      },
+        headerRight:null
+    };
+};
 
       constructor(props) {
         super(props);
@@ -54,7 +72,7 @@ class RegisterOneStepScreen extends Component{
         return(
           <ImageBackground style={{flex:1,justifyContent:"space-between",flexDirection:'column',position:'absolute', top: 0, bottom: 0, left: 0, right: 0}} source={require('.././images/back-register.jpg')}>
               <View style={{height:100}}>
-              <Text style={{color:'#fff',fontFamily:'Raleway-Bold',marginLeft:20,fontSize:20,marginTop:70}}>YENİ HESAP OLUŞTUR</Text>
+              
             </View>  
             <View style={{height:700}}>
             <Form>
