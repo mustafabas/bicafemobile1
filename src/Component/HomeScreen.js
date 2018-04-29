@@ -30,7 +30,7 @@ static navigationOptions = ({ navigation}) => {
           },
           //headerLeft:<Button transparent><Icon name="bars"  style={{ color: 'white' }} size={20} /></Button>,
           headerStyle:{
-          backgroundColor: '#2a363b', borderWidth: 2, borderBottomColor: '#3eaca8'
+          backgroundColor: '#F77700', borderWidth: 2, borderBottomColor: '#ccc'
           },
           headerRightStyle:{
               marginRight:5,
