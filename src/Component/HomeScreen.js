@@ -20,9 +20,9 @@ static navigationOptions = ({ navigation}) => {
           
         return {
           headerTitle: 'Sharefood',
-          headerLeft:<Button style={{marginLeft:10}} onPress={this._signOutAsync} transparent><Ionicons style={{color:'#547a82'}} name='md-add-circle' size={25}/></Button> ,
+          headerLeft:<Button style={{marginLeft:10}} onPress={this._signOutAsync} transparent><Ionicons style={{color:'#fff'}} name='md-add-circle' size={25}/></Button> ,
           headerTitleStyle:{
-              color:"#2a363b",
+              color:"#fff",
               fontFamily: 'GothicA1-Bold',
               width:'90%',
               textAlign:'center'
@@ -30,12 +30,12 @@ static navigationOptions = ({ navigation}) => {
           },
           //headerLeft:<Button transparent><Icon name="bars"  style={{ color: 'white' }} size={20} /></Button>,
           headerStyle:{
-          backgroundColor: '#fff', borderWidth: 2, borderBottomColor: '#3eaca8'
+          backgroundColor: '#2a363b', borderWidth: 2, borderBottomColor: '#3eaca8'
           },
           headerRightStyle:{
               marginRight:5,
           },
-            headerRight:<Button style={{marginRight:10}} onPress={this._signOutAsync} transparent><Ionicons style={{color:'#547a82'}} name='md-settings' size={25}/></Button>
+            headerRight:<Button style={{marginRight:10}} onPress={this._signOutAsync} transparent><Ionicons style={{color:'#fff'}} name='ios-settings' size={25}/></Button>
         };
     };
     

@@ -30,7 +30,7 @@ const AppStack=TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === 'Home') {
-          iconName = `ios-home${focused ? '' : '-outline'}`;
+          iconName = `ios-list${focused ? '' : '-outline'}`;
         } else if (routeName === 'SelfProfile') {
           iconName = `ios-person${focused ? '' : '-outline'}`;
         }
@@ -41,7 +41,11 @@ const AppStack=TabNavigator(
       },
     }),
     tabBarOptions: {
+<<<<<<< HEAD
       activeTintColor: '#e84a5f',
+=======
+      activeTintColor: '#f67280',
+>>>>>>> mustafa2/master
       inactiveTintColor: 'gray',
     },
     tabBarComponent: TabBarBottom,
