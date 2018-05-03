@@ -9,15 +9,22 @@ import SelfProfileScreen from './Component/SelfProfileScreen.js';
 import RegisterOneStepScreen from './Component/RegisterOneStepScreen.js';
 import { StackNavigator,SwitchNavigator,TabNavigator,TabBarBottom,addNavigationHelpers } from 'react-navigation';
 import SelfProfileEditScreen from './Component/SelfProfileEditScreen';
-
-
+import SelfProfileEditProfileScreen from './Component/SelfProfileEditProfileScreen';
+import CompanyCreateProfileScreen from './Component/CompanyCreateProfileScreen';
 const HomeStack = StackNavigator({ Home: HomeScreen });
 
 const SelfProfileStack = StackNavigator({
   SelfProfile: { screen: SelfProfileScreen },
-  SelfProfileEditScreen: {screen:SelfProfileEditScreen},
+  SelfProfileEdit: {screen:SelfProfileEditScreen},
+  SelfProfileEditProfile: {screen: SelfProfileEditProfileScreen},
+  CompanyCreateProfile: {screen: CompanyCreateProfileScreen},
 });
 
+
+// const SelfProfileEdiStack = StackNavigator({
+//   SelfProfileEdit: {screen:SelfProfileEditScreen},
+//   SelfProfileEditProfile: {screen: SelfProfileEditProfileScreen},
+// });
 
 
 
@@ -42,11 +49,7 @@ const AppStack=TabNavigator(
       },
     }),
     tabBarOptions: {
-<<<<<<< HEAD
-      activeTintColor: '#e84a5f',
-=======
       activeTintColor: '#f67280',
->>>>>>> mustafa2/master
       inactiveTintColor: 'gray',
     },
     tabBarComponent: TabBarBottom,
@@ -65,7 +68,7 @@ export default SwitchNavigator(
     Auth: AuthStack,
   },
   {
-    initialRouteName: 'AuthLoading',
+    initialRouteName: 'App',
   }
 );
 
