@@ -1,8 +1,9 @@
 import React, { Component }  from 'react';
+import {NavigationActions} from 'react-navigation';
 import {View,ScrollView,Alert,AsyncStorage,Text,TextInput,StyleSheet} from 'react-native';
 import {Button,Thumbnail,Input} from 'native-base';
 
-import ShareListItem from './ShareListItem';
+import ShareListItem from '.././Component/ShareListItem';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -17,12 +18,22 @@ static navigationOptions = ({ navigation}) => {
             await AsyncStorage.clear();
             navigation.navigate('Auth');
           };
-          
+          _goToTab=()=>{
+            const navigationAction = NavigationActions.navigate({
+                routeName: "AppStack1", // <==== this is parent Profile tabNavigator
+                action: NavigationActions.navigate({
+                  routeName: "PlacesTogo", // <===== this is default child Screen for Profile tabNavigator
+                  params: { name: "JADE" }
+                })
+              });
+         navigation.dispatch(navigationAction);
+
+          }
         return {
           headerTitle: 'Sharefood',
-          headerLeft:<Button style={{marginLeft:10}} onPress={this._signOutAsync} transparent><Ionicons style={{color:'#fff'}} name='md-add-circle' size={25}/></Button> ,
+          headerLeft:<Button style={{marginLeft:10}} onPress={this._goToTab} transparent><Ionicons style={{color:'#355c7d'}} name='md-add-circle' size={25}/></Button> ,
           headerTitleStyle:{
-              color:"#fff",
+              color:"#355c7d",
               fontFamily: 'GothicA1-Bold',
               width:'90%',
               textAlign:'center'
@@ -30,23 +41,22 @@ static navigationOptions = ({ navigation}) => {
           },
           //headerLeft:<Button transparent><Icon name="bars"  style={{ color: 'white' }} size={20} /></Button>,
           headerStyle:{
-          backgroundColor: '#F77700', borderWidth: 2, borderBottomColor: '#ccc'
+          backgroundColor: '#fff', borderWidth: 1, borderBottomColor: '#f67280'
           },
           headerRightStyle:{
               marginRight:5,
           },
-            headerRight:<Button style={{marginRight:10}} onPress={this._signOutAsync} transparent><Ionicons style={{color:'#fff'}} name='ios-settings' size={25}/></Button>
+            headerRight:<Button style={{marginRight:10}} onPress={this._signOutAsync} transparent><Ionicons style={{color:'#355c7d'}} name='ios-settings' size={25}/></Button>
         };
     };
     
-
     render()
     {
         return(
+    
             <View style={{backgroundColor:'#fff',flex: 1}}>
             <TextInput underlineColorAndroid='transparent' placeHolderStyle={{color:'#333',fontSize:12}} placeholder='Şehir veya ilçe..' style={styles.searchBox} />
-            <Text style={{marginLeft:10,color:'#333',marginTop:5,fontSize:13, fontFamily:'GothicA1-Bold'}}>En Yakındakiler<Icon style={{marginTop:10}} name='angle-down' size={20}/></Text>
-            <View style={{borderBottomColor:'#c4c4c4',borderStyle:'solid',borderBottomWidth:1,marginRight:5,marginLeft:5}}></View>
+           
             <ScrollView style={{flex:1,marginTop:5}} >
                 <ShareListItem/>   
                 <ShareListItem/>  
@@ -54,6 +64,7 @@ static navigationOptions = ({ navigation}) => {
                  
             </ScrollView>
             </View>
+        
         );
 
     }

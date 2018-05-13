@@ -12,20 +12,21 @@ export default class ShareListItem extends Component{
     {
         return(
             <Content >
-            <Card style={{backgroundColor:'#fff',marginLeft:10,marginRight:10}}>
+            <Card style={{backgroundColor:'#fff',marginLeft:5,marginRight:5,borderRadius:3}}>
             <View style={styles.storeDiv}>
               <View style={styles.storeHead}>
-                <Thumbnail source={{uri: 'https://i.pinimg.com/originals/11/30/66/1130660541155da406becb6d3cc910ec.jpg'}} />
+              <Image style={{width:35,height:35, borderRadius:5,marginRight:5,marginBottom:5}} source={{uri: 'http://www.attractivepartners.co.uk/wp-content/uploads/2017/06/profile.jpg'}}/>
+      
                 <View>
-                  <Text style={{color:'#2a363b',fontSize:12,fontFamily:'Lato-SemiBold'}}>@starbucks</Text>
+                  <Text style={{color:'#2a363b',fontSize:12,fontFamily:'Lato-Bold'}}>starbucks</Text>
               
                 <Text note style={{color:'#ccc',textDecorationLine:'underline',fontSize:10}}>Bornova/İzmir</Text>
                 
                 </View>
               </View>
               <View style={{marginRight:10}} >
-              <Ionicons style={{fontSize:30,color:'#ccc',justifyContent: 'flex-end'}} name="ios-more"/>
-              <Text note style={[human.caption2,{color:'#ccc'}]}>15 dk</Text>
+              <Ionicons style={{fontSize:30,color:'#2A363B',justifyContent: 'flex-end'}} name="ios-more"/>
+              <Text note style={{color:'#ccc',marginTop:-5,marginRight:5,fontSize:10}}>15 dk</Text>
               </View>
             </View>
             <CardItem cardBody>

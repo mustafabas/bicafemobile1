@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import {Platform} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import LoginScreen from './Component/LoginScreen.js';
-import HomeScreen from './Component/HomeScreen.js';
-import AuthLoadingScreen from './Component/AuthLoadingScreen.js';
-import SelfProfileScreen from './Component/SelfProfileScreen.js';
-import RegisterOneStepScreen from './Component/RegisterOneStepScreen.js';
+import LoginScreen from './Screen/LoginScreen.js';
+import HomeScreen from './Screen/HomeScreen.js';
+import AuthLoadingScreen from './Screen/AuthLoadingScreen.js';
+import SelfProfileScreen from './Screen/SelfProfileScreen.js';
+import RegisterOneStepScreen from './Screen/RegisterOneStepScreen.js';
 import { StackNavigator,SwitchNavigator,TabNavigator,TabBarBottom,addNavigationHelpers } from 'react-navigation';
-import SelfProfileEditScreen from './Component/SelfProfileEditScreen';
+import SelfProfileEditScreen from './Screen/SelfProfileEditScreen';
 
 
 const HomeStack = StackNavigator({ Home: HomeScreen });
@@ -21,15 +21,17 @@ const SelfProfileStack = StackNavigator({
 
 
 
-const AppStack=TabNavigator(
+ AppStack=TabNavigator(
   {
     Home: { screen: HomeStack },
     SelfProfile: { screen: SelfProfileStack },
   },{
     navigationOptions: ({ navigation }) => ({
+
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
+      
         if (routeName === 'Home') {
           iconName = `ios-list${focused ? '' : '-outline'}`;
         } else if (routeName === 'SelfProfile') {
@@ -42,22 +44,24 @@ const AppStack=TabNavigator(
       },
     }),
     tabBarOptions: {
-<<<<<<< HEAD
-      activeTintColor: '#e84a5f',
-=======
-      activeTintColor: '#f67280',
->>>>>>> mustafa2/master
-      inactiveTintColor: 'gray',
+      showLabel:false,
+
+      activeTintColor: '#2a363b',
+      inactiveTintColor: '#ccc',
+      style: {
+        backgroundColor: '#fff',
+   
+      }
     },
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
-    animationEnabled: true,
+    animationEnabled: false,
     swipeEnabled: false,
+    lazy:true
   }
 );
 
 const AuthStack = StackNavigator({ Login: LoginScreen,Register:RegisterOneStepScreen});
-
 export default SwitchNavigator(
   {
     AuthLoading: AuthLoadingScreen,
@@ -68,5 +72,4 @@ export default SwitchNavigator(
     initialRouteName: 'AuthLoading',
   }
 );
-
 

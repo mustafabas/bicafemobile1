@@ -1,8 +1,11 @@
 import React,{Component   } from "react";
+
+
 import { View, Image,AsyncStorage,StyleSheet,ImageBackground,Alert } from 'react-native';
-import { Form, Item, Input, Label, Content, Button, Text, Spinner,Icon }  from 'native-base';
+import { Form, Item, Input, Label, Content, Button, Text,Icon,Spinner }  from 'native-base';
 import { connect } from "react-redux";
 import {LoginChanged,LoginMember} from '.././actions';
+
 
 
 
@@ -10,7 +13,18 @@ import {LoginChanged,LoginMember} from '.././actions';
     static navigationOptions = {
         header:null
       };
-    
+
+      renderButton()
+      {
+          if(this.props.loading)
+          {
+              return (<Spinner size='small'/>);
+          }
+          return (<Button full iconLeft light style={{marginTop:10,backgroundColor:'#FF4917'}} onPress={this._signIn.bind(this)} >
+          <Icon style={{color:'white'}} name='arrow-forward' />
+          <Text style={{color:'white'}}>GİRİŞ YAP</Text>
+          </Button>);
+      }
     render(){
       
 
@@ -19,7 +33,7 @@ import {LoginChanged,LoginMember} from '.././actions';
             <View style={{ marginTop:30,height:100}} >
                 <Text style={styles.tWelcome}>HOŞGELDİN</Text>
                 <Text style={styles.tSubText}>Giriş yaparak indirimleri dilediğin gibi </Text>
-                <Text style={styles.tSubText}>kullanabilirsin..</Text>
+                <Text style={styles.tSubText}>kullanabilir, ücretsiz yemek paylaşımlarına katılabilirsin</Text>
             </View>
             <View style={{height:300}}>
                   
@@ -35,13 +49,8 @@ import {LoginChanged,LoginMember} from '.././actions';
                     <Input secureTextEntry value={this.props.password} onChangeText={password1=>this.props.LoginChanged({props:'password',value:password1})} placeholderTextColor='#fff' style={styles.formInput} placeholder='Şifre'/>
                 </Item>
                     </Form>
-                    <Button full iconLeft light style={{marginTop:10,backgroundColor:'#FF4917'}} onPress={this._signIn.bind(this)} >
-                    <Icon style={{color:'white'}} name='arrow-forward' />
-                    <Text style={{color:'white'}}>GİRİŞ YAP</Text>
-                
-
-                    </Button>
-                    <Button full iconLeft light style={{marginTop:10,backgroundColor:'#4267B2'}}>
+                    {this.renderButton()}
+                    <Button full iconLeft  light style={{marginTop:10,backgroundColor:'#4267B2'}}>
                     <Icon style={{color:'white'}} name='arrow-forward' />
                     <Text style={{color:'white'}}>Facebookla Bağlan</Text>
                     </Button>

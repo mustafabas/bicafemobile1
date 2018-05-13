@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
-import ShareListItemMin from './ShareListItemMin.js';
-import ShareListItem from './ShareListItem.js'
+import ShareListItemMin from '../Component/ShareListItemMin.js';
+
 
 
 export default class PlacesTogoScreen extends Component {

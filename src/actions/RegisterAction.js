@@ -3,6 +3,7 @@ import {Alert,AsyncStorage} from 'react-native';
 import {Toast} from 'native-base';
 import axios from 'axios';
 import { navigate } from '.././services/navigator';
+import qs from 'qs';
 
 import {REGISTER_CHANGE,REGISTER_CREATE,REGISTER_CREATE_SUCCESS, REGISTER_CREATE_FAILED,REGISTER_CREATE_FAILED_EMAIL} from './types';
 
@@ -31,13 +32,32 @@ export const RegisterCreate=({username,password,nameSurname,email})=>{
         else{
           if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email))
           {
-           axios.get('http://test3.makinaturkiye.com/api/member/createMember?email=' + email +'&password=' + password+'&username='+username+'&nameSurname='+nameSurname)
+
+           axios.post('http://test3.makinaturkiye.com/api/account/register?email=' + email +'&password=' + password+'&username='+username+'&nameSurname='+nameSurname)
             .then(function (response) {
               dispatch({
                 type:REGISTER_CREATE_SUCCESS
               });
           
               AsyncStorage.setItem('memberId', response.data.toString());
+              axios.post('http://test3.makinaturkiye.com/token', qs.stringify({ 'grant_type': 'password','username':username,'password':password }))
+              .then(function(response){
+                   // dispatch({
+
+               // });
+
+              
+                AsyncStorage.setItem('accessToken',response.data.access_token);
+                navigate('Home');
+            
+              
+              }).catch(function(error){
+                dispatch({
+                  type:REGISTER_CREATE_FAILED
+                });
+                Alert.alert('Bir Hata Oluştu Düzeltmek İçin uğraşıyoruz.');
+                console.log(error);
+              });
               //Alert.alert(response.data.toString());
             /*const navigateAction = NavigationActions.navigate({
                 routeName: "App",
@@ -45,7 +65,7 @@ export const RegisterCreate=({username,password,nameSurname,email})=>{
                 action: NavigationActions.navigate({ routeName: "App" })
               });*/
            
-              navigate('Home');
+           
             
                
             })
@@ -80,8 +100,4 @@ const RegisterCreateErrorForEmail=(dispatch)=>{
 
   };
   const RegisterCreateSuccess=(dispatch,response)=>{
-
-  
-    
-
   };

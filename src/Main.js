@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import { addNavigationHelpers, NavigationActions } from "react-navigation";
-import LoginScreen from './Component/LoginScreen';
 import RouteStack from './RouteStack.js';
 import { setNavigator } from './services/navigator';
+
 
 
 import reducers from './reducers';
