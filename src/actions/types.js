@@ -12,6 +12,9 @@ export const REGISTER_CREATE_FAILED_EMAIL='register_create_failed_email';
 export const MEMBER_INFORMATION='member_information';
 export const MEMBER_INFORMATION_DATA_SUCCESS='member_information_data_success';
 export const MEMBER_INFORMATION_LOADING='member_information_loading';
+export const MEMBER_UPDATE_CHANGE='member_update_changed';
+
+export const MEMBER_UPDATE_SUCCESS='member_update_success';
 
 
 export const WEB_SERVICE_URL='http://test3.makinaturkiye.com/api';

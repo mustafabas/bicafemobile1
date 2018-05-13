@@ -8,7 +8,7 @@ import AuthLoadingScreen from './Screen/AuthLoadingScreen.js';
 import SelfProfileScreen from './Screen/SelfProfileScreen.js';
 import RegisterOneStepScreen from './Screen/RegisterOneStepScreen.js';
 import { StackNavigator,SwitchNavigator,TabNavigator,TabBarBottom,addNavigationHelpers } from 'react-navigation';
-import SelfProfileEditScreen from './Screen/SelfProfileEditScreen';
+import SettingsScreen from './Screen/SettingsScreen';
 import SelfProfileEditProfileScreen from './Screen/SelfProfileEditProfileScreen';
 import CompanyCreateProfileScreen from './Screen/CompanyCreateProfileScreen';
 
@@ -17,9 +17,10 @@ const HomeStack = StackNavigator({ Home: HomeScreen });
 
 const SelfProfileStack = StackNavigator({
   SelfProfile: { screen: SelfProfileScreen },
-  SelfProfileEdit: {screen:SelfProfileEditScreen},
+  Settings: {screen:SettingsScreen},
   SelfProfileEditProfile: {screen: SelfProfileEditProfileScreen},
   CompanyCreateProfile: {screen: CompanyCreateProfileScreen},
+  
 });
 
 

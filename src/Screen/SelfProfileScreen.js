@@ -19,10 +19,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 
  class SelfProfileScreen extends Component{
-    state={
-        memberId:'',
-        accessToken:''
-        };
         constructor(props){
             super(props);
      
@@ -30,27 +26,20 @@ import Icon from 'react-native-vector-icons/FontAwesome';
         }
    
         static navigationOptions = ({ navigation}) => {
-          
             const {state} = navigation;
-      
-              
             return {
               headerTitle:'Profilim',
               headerTitleStyle:{
                   color:"#355c7d",
-                  fontFamily: 'GothicA1-Bold',
-               
-                  
+                  fontFamily: 'GothicA1-Bold',  
               },
-             
-             
               headerStyle:{
               backgroundColor: '#fff', borderWidth: 1, borderBottomColor: '#f67280'
               },
               headerRightStyle:{
                   marginRight:5,
               },
-                headerRight:<Button style={{marginRight:10}} onPress={this._signOutAsync} transparent><Ionicons style={{color:'#355c7d'}} name='ios-settings' size={25}/></Button>
+                headerRight:<Button style={{marginRight:10}} onPress={()=>navigation.navigate('Settings')} transparent><Ionicons style={{color:'#355c7d'}} name='ios-settings' size={25}/></Button>
             };
         };
 
@@ -99,17 +88,14 @@ import Icon from 'react-native-vector-icons/FontAwesome';
                                 <Text style={{ color: '#9A9DA0', fontFamily: 'Raleway', fontSize: 14 }}><Icon name='map-marker' size={16} style={{color:'#ccc'}}/>İzmir</Text>
                                 <Text style={{ color: '#D77808', fontFamily: 'Lato', fontSize: 12 }}>4.5 Referans(10)</Text>
                             </View>
-                            
                             <View style={{flex:0.35}}>
-                                <Button style={{backgroundColor:'#f67280',height:25,padding:5,marginRight:10,borderRadius:5}}>
+                                <Button onPress={()=>this.props.navigation.navigate('SelfProfileEditProfile')} style={{backgroundColor:'#f67280',height:25,padding:5,marginRight:10,borderRadius:5}}>
                                     <Text style={{fontFamily:'Lato-Bold',color:'#fff',fontSize:13}}> Profili Düzenle</Text>
                                 </Button>
-                           
-                            
                             </View>
                         </View>
                         <View style={{ flex: 0.7 }}>
-                            <RouteSelfProfile screenProps={{data:this.props.member}}/>
+                            <RouteSelfProfile screenProps={{member:this.props.member}}/>
                         </View>
         
         

@@ -10,7 +10,7 @@ export default class SelfProfileAboutScreen extends Component{
         return(
 
         <ScrollView style={container}>
-            <Text style={textAbout}>{this.props.screenProps.data.ShortAbout}</Text>
+            <Text style={textAbout}>{this.props.screenProps.member.ShortAbout}</Text>
          <View style={sHr}></View>
             <View style={{flex:1,flexDirection: 'row'}}>
                 <Text style={txtGeneral}>Telefon Onaylandı</Text>

@@ -1,13 +1,8 @@
 import React,{Component   } from "react";
-
-
 import { View, Image,AsyncStorage,StyleSheet,ImageBackground,Alert } from 'react-native';
 import { Form, Item, Input, Label, Content, Button, Text,Icon,Spinner }  from 'native-base';
 import { connect } from "react-redux";
 import {LoginChanged,LoginMember} from '.././actions';
-
-
-
 
  class LoginScreen extends Component{
     static navigationOptions = {
