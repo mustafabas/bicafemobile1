@@ -9,15 +9,24 @@ import SelfProfileScreen from './Screen/SelfProfileScreen.js';
 import RegisterOneStepScreen from './Screen/RegisterOneStepScreen.js';
 import { StackNavigator,SwitchNavigator,TabNavigator,TabBarBottom,addNavigationHelpers } from 'react-navigation';
 import SelfProfileEditScreen from './Screen/SelfProfileEditScreen';
+import SelfProfileEditProfileScreen from './Screen/SelfProfileEditProfileScreen';
+import CompanyCreateProfileScreen from './Screen/CompanyCreateProfileScreen';
 
 
 const HomeStack = StackNavigator({ Home: HomeScreen });
 
 const SelfProfileStack = StackNavigator({
   SelfProfile: { screen: SelfProfileScreen },
-  SelfProfileEditScreen: {screen:SelfProfileEditScreen},
+  SelfProfileEdit: {screen:SelfProfileEditScreen},
+  SelfProfileEditProfile: {screen: SelfProfileEditProfileScreen},
+  CompanyCreateProfile: {screen: CompanyCreateProfileScreen},
 });
 
+
+// const SelfProfileEdiStack = StackNavigator({
+//   SelfProfileEdit: {screen:SelfProfileEditScreen},
+//   SelfProfileEditProfile: {screen: SelfProfileEditProfileScreen},
+// });
 
 
 
@@ -44,6 +53,7 @@ const SelfProfileStack = StackNavigator({
       },
     }),
     tabBarOptions: {
+
       showLabel:false,
 
       activeTintColor: '#2a363b',
@@ -52,7 +62,8 @@ const SelfProfileStack = StackNavigator({
         backgroundColor: '#fff',
    
       }
-    },
+    }
+,
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
     animationEnabled: false,
@@ -69,7 +80,7 @@ export default SwitchNavigator(
     Auth: AuthStack,
   },
   {
-    initialRouteName: 'AuthLoading',
+    initialRouteName: 'App',
   }
 );
 
